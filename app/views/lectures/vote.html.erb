@@ -1,0 +1,9 @@
+
+
+<h1><%= @lecture.name %></h1>
+
+<p>
+  <strong>Given by:</strong>
+  <%= @lecture.teacher.name %>
+  <%= time_ago_in_words(@lecture.date) %> ago
+</p>
