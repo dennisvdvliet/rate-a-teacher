@@ -16,12 +16,14 @@
     <tr>
         <th>Name</th>
         <th>Date</th>
+        <th>Voting link</th>
     </tr>
 
     <% @teacher.lectures.each do |lecture| %>
         <tr>
             <td><%= lecture.name %></td>
             <td><%= lecture.date %></td>
+            <td><%= link_to vote_lecture_url(lecture) %></td>
         </tr>
     <% end %>
 
