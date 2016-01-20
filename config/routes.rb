@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :votes
   resources :lectures do
+    resources :votes
     member do
       get :vote
     end
