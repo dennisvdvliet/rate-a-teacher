@@ -10,5 +10,22 @@
   <%= @teacher.email %>
 </p>
 
+<h2>Lectures</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+    </tr>
+
+    <% @teacher.lectures.each do |lecture| %>
+        <tr>
+            <td><%= lecture.name %></td>
+            <td><%= lecture.date %></td>
+        </tr>
+    <% end %>
+
+</table>
+
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>
