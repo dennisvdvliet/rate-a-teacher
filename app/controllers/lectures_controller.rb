@@ -23,6 +23,7 @@ class LecturesController < ApplicationController
 
   # GET /lectures/1/vote
   def vote
+    @vote = Vote.new
   end
 
   # POST /lectures

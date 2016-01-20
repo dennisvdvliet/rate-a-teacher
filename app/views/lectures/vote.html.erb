@@ -1,4 +1,4 @@
-
+<p id="notice"><%= notice %></p>
 
 <h1><%= @lecture.name %></h1>
 
@@ -7,3 +7,16 @@
   <%= @lecture.teacher.name %>
   <%= time_ago_in_words(@lecture.date) %> ago
 </p>
+
+<%= form_for([@lecture, @vote ]) do |f| %>
+    <%= f.hidden_field(:lecture_id, :value => @lecture.id) %>
+    <%= f.radio_button(:stars, 1) %> 1 star </br>
+    <%= f.radio_button(:stars, 2) %> 2 stars </br>
+    <%= f.radio_button(:stars, 3) %> 3 stars </br>
+    <%= f.radio_button(:stars, 4) %> 4 stars </br>
+    <%= f.radio_button(:stars, 5, checked: true) %> 5 stars </br>
+
+    <div class="actions">
+    <%= f.submit %>
+    </div>
+<% end %>
