@@ -10,7 +10,7 @@
 
 <p>
     Received <%= @lecture.votes.count %> votes with an average
-    rating of <%= @lecture.average_rating %>
+    rating of <%= @lecture.average_rating.round(2) %>
 </p>
 
 <%= form_for([@lecture, @vote ]) do |f| %>

@@ -3,6 +3,7 @@ class Lecture < ActiveRecord::Base
   has_many :votes
 
 
+
   def average_rating
     votes.average(:stars)
   end
