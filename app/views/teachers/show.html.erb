@@ -23,7 +23,7 @@
         <tr>
             <td><%= lecture.name %></td>
             <td><%= lecture.date %></td>
-            <td><%= link_to vote_lecture_url(lecture), vote_lecture_url(lecture) %></td>
+            <td><%= link_to 'Vote', vote_lecture_url(lecture) %></td>
         </tr>
     <% end %>
 
