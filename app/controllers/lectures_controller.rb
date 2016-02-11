@@ -1,5 +1,6 @@
 class LecturesController < ApplicationController
   before_action :set_lecture, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :authenticate_teacher!
 
   # GET /lectures
   # GET /lectures.json
