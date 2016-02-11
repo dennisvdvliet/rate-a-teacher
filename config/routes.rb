@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :votes
     member do
       get :vote
+      get :thanks
     end
   end
   resources :teachers

@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
   before_action :set_lecture, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_teacher!, :except => [:vote]
+  before_action :authenticate_teacher!, :except => [:vote, :thanks]
 
   # GET /lectures
   # GET /lectures.json
@@ -26,6 +26,9 @@ class LecturesController < ApplicationController
   def vote
     @lecture = Lecture.find(params[:id])
     @vote = Vote.new
+  end
+
+  def thanks
   end
 
   # POST /lectures
