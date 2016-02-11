@@ -1,0 +1,12 @@
+<h1>Welcome to Rate-a-teacher</h1>
+<% if teacher_signed_in? %>
+
+  <h2>Past lectures</h2>
+
+
+  <h2>New lecture</h2>
+
+  <%= link_to "Create new lecture", new_lecture_path %>
+<% else %>
+  <%= link_to "Please login first", new_teacher_session_path %>
+<% end %>

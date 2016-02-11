@@ -21,6 +21,10 @@ class TeachersController < ApplicationController
   def edit
   end
 
+  def dashboard
+    
+  end
+
   # POST /teachers
   # POST /teachers.json
   def create
