@@ -2,10 +2,31 @@
 <% if teacher_signed_in? %>
 
   <h2>Past lectures</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Votes</th>
+          <th>Rating</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_teacher.lectures.each do |lecture| %>
+          <tr>
+            <td><%= lecture.name %></td>
+            <td><%= lecture.date %></td>
+            <td><%= lecture.votes.count %></td>
+            <td><%= lecture.average_rating %></td>
+            <td><%= link_to vote_lecture_url(lecture), vote_lecture_url(lecture) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 
   <h2>New lecture</h2>
-
   <%= link_to "Create new lecture", new_lecture_path %>
 <% else %>
   <%= link_to "Please login first", new_teacher_session_path %>
