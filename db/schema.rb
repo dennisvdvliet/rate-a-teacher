@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160211090549) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "lectures", force: :cascade do |t|
     t.string   "name"
     t.datetime "date"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160211090549) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "lectures", ["teacher_id"], name: "index_lectures_on_teacher_id"
+  add_index "lectures", ["teacher_id"], name: "index_lectures_on_teacher_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20160211090549) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
-  add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
+  add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
+  add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "stars"
@@ -49,6 +52,8 @@ ActiveRecord::Schema.define(version: 20160211090549) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "votes", ["lecture_id"], name: "index_votes_on_lecture_id"
+  add_index "votes", ["lecture_id"], name: "index_votes_on_lecture_id", using: :btree
 
+  add_foreign_key "lectures", "teachers"
+  add_foreign_key "votes", "lectures"
 end
